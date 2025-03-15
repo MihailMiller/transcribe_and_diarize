@@ -32,7 +32,7 @@ def transcribe_audio(wav_file: str, model: str):
     """Transcribe an audio file using Whisper with a specified model."""
     logging.info(f"Transcribing with Whisper using model {model}...")
     subprocess.run([
-        "../whisper.cpp/build/bin/Release/main.exe", "-m", f"../whisper.cpp/models/{model}", "-ml", "50", "-l", "de", "-ocsv", "-f", wav_file
+        "../whisper.cpp/build/bin/Release/main.exe", "-m", f"../whisper.cpp/models/{model}", "-ml", "50", "-l", "auto", "-ocsv", "-f", wav_file
     ], stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=True)
     return f"{os.path.splitext(wav_file)[0]}.wav.csv"
 
@@ -131,7 +131,7 @@ def main():
     parser = argparse.ArgumentParser(description="Process audio files for transcription and speaker diarization.")
     parser.add_argument("--input", type=str, help="Input directory containing audio files")
     parser.add_argument("--output", type=str, help="Output directory for processed files")
-    parser.add_argument("--model", type=str, default="ggml-tiny.bin", help="Whisper model to use for transcription")
+    parser.add_argument("--model", type=str, default="ggml-large-v3-turbo.bin", help="Whisper model to use for transcription")
     args = parser.parse_args()
     
     input_dir = args.input
@@ -140,7 +140,7 @@ def main():
 
     for file in os.listdir(input_dir):
         file_path = os.path.join(input_dir, file)
-        if os.path.isfile(file_path) and file.lower().endswith((".mp3", ".wav", ".m4a", ".flac")):  # Supported formats
+        if os.path.isfile(file_path) and file.lower().endswith((".mp4", ".mp3", ".wav", ".m4a", ".flac")):  # Supported formats
             process_audio(file_path, args.model, output_dir)
 
 if __name__ == "__main__":
