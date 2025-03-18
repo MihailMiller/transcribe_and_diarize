@@ -91,4 +91,4 @@ If you encounter any issues:
 This script is released under the **MIT License**.
 
 ## Funding
-Parts of the work were funded by grants of the German Ministry of Education and Research in the context of the joint research projects "MANGAN" (01IS22011C) under the supervision of the PT-DLR.
+Parts of the work were funded by grants of the German Ministry of Education and Research in the context of the joint research project "MANGAN" (01IS22011C) under the supervision of the PT-DLR.
