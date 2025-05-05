@@ -39,7 +39,7 @@ HF_TOKEN=your_huggingface_token
 Run the script with the desired parameters:
 
 ```bash
-python script.py --input /path/to/input --output /path/to/output --model ggml-large-v3-turbo.bin
+python transcribe_diarize.py --input /path/to/input --output /path/to/output --model ggml-large-v3-turbo.bin
 ```
 
 #### Arguments:
